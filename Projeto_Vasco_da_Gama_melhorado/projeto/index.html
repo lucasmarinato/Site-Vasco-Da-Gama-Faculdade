@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Atualizações sobre o Vasco da Gama, o Gigante da Colina.">
+    <meta name="color-scheme" content="light dark">
+    <title>Jovem Vasco</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Aplica o tema salvo antes de a página aparecer (evita "piscar" claro/escuro)
+        (function () {
+            try {
+                var salvo = localStorage.getItem("tema");
+                var escuro = salvo ? salvo === "escuro"
+                    : window.matchMedia("(prefers-color-scheme: dark)").matches;
+                document.documentElement.setAttribute("data-tema", escuro ? "escuro" : "claro");
+            } catch (e) {}
+        })();
+    </script>
+</head>
+<body>
+
+    <header class="topo">
+        <nav class="nav" aria-label="Navegação principal">
+            <a class="nav__marca" href="#home">Jovem Vasco</a>
+
+            <button class="nav__menu-btn" id="menu-btn" type="button"
+                    aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul class="nav__lista" id="menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#video">Vídeo</a></li>
+                <li><a href="#servico-desktop">Serviço Desktop</a></li>
+                <li><a href="#servico-mobile">Serviço Mobile</a></li>
+                <li><a href="#tabelas">Tabelas</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+
+            <button class="tema-btn" id="tema-btn" type="button" aria-label="Alternar modo noturno">
+                <span class="tema-btn__icone" aria-hidden="true">🌙</span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero__conteudo">
+                <h1>Bem-vindo ao Site do Vasco</h1>
+                <p>Atualizações sobre o Gigante da Colina</p>
+                <a class="botao" href="#sobre">Conheça o time</a>
+            </div>
+        </section>
+
+        <section id="sobre" class="secao sobre">
+            <img class="sobre__escudo" src="escudo-vasco.webp"
+                 alt="Escudo do Club de Regatas Vasco da Gama" width="220" height="220">
+            <div class="sobre__texto">
+                <h2>Sobre o time carioca</h2>
+                <p>O time carioca Vasco da Gama, também conhecido como Gigante da Colina,
+                    atualmente disputa o Campeonato Brasileiro Série A, lutando entre a elite
+                    do futebol brasileiro.</p>
+                <a class="botao" href="https://vasco.com.br/" target="_blank" rel="noopener noreferrer">
+                    Site oficial do Vasco
+                </a>
+            </div>
+        </section>
+
+        <section id="video" class="secao">
+            <h2>Vídeo do Vasco</h2>
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/-dYiGn_z34o"
+                        title="Vídeo do Vasco da Gama"
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section id="servico-desktop" class="secao">
+            <h2>Desenvolvimento Desktop</h2>
+            <p>Utilizando o que há de melhor em tecnologia para deixar o Gigante cada vez mais forte.</p>
+        </section>
+
+        <section id="servico-mobile" class="secao">
+            <h2>Desenvolvimento Mobile</h2>
+            <p>Criando aplicativos sucintos para o Vascão.</p>
+        </section>
+
+        <section id="tabelas" class="secao">
+            <h2>Tabelas de exemplo</h2>
+
+            <div class="tabela-wrap">
+                <table>
+                    <caption>Lista de pessoas</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Idade</th>
+                            <th scope="col">Cidade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ana</td>
+                            <td>25</td>
+                            <td>São Paulo</td>
+                        </tr>
+                        <tr>
+                            <td>Bruno</td>
+                            <td>30</td>
+                            <td>Rio de Janeiro</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tabela-wrap">
+                <table>
+                    <caption>Dados dos clientes</caption>
+                    <thead>
+                        <tr>
+                            <th scope="colgroup" colspan="2">Nome e Idade</th>
+                            <th scope="col">Cidade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ana</td>
+                            <td>25</td>
+                            <td rowspan="2">São Paulo</td>
+                        </tr>
+                        <tr>
+                            <td>Bruno</td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td>João</td>
+                            <td>25</td>
+                            <td>São Paulo</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="contato" class="secao">
+            <h2>Entre em contato conosco</h2>
+
+            <form id="form-contato" class="form" novalidate>
+                <div class="campo">
+                    <label for="nome">Nome completo</label>
+                    <input type="text" id="nome" name="nome" autocomplete="name" required>
+                    <small class="erro" data-erro-para="nome"></small>
+                </div>
+
+                <div class="campo">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" autocomplete="email" required>
+                    <small class="erro" data-erro-para="email"></small>
+                </div>
+
+                <div class="campo">
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" id="telefone" name="telefone" autocomplete="tel"
+                           placeholder="(99) 99999-9999" maxlength="15" inputmode="numeric">
+                    <small class="erro" data-erro-para="telefone"></small>
+                </div>
+
+                <fieldset class="campo">
+                    <legend>Cargo pretendido</legend>
+                    <div class="opcoes">
+                        <label class="opcao" for="rd-programador">
+                            <input type="radio" name="cargo" id="rd-programador" value="programador">
+                            Programador
+                        </label>
+                        <label class="opcao" for="rd-webdesigner">
+                            <input type="radio" name="cargo" id="rd-webdesigner" value="webdesigner">
+                            Web Designer
+                        </label>
+                    </div>
+                </fieldset>
+
+                <div class="campo">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" name="mensagem" rows="5" maxlength="500" required></textarea>
+                    <small class="contador" id="contador">0 / 500</small>
+                    <small class="erro" data-erro-para="mensagem"></small>
+                </div>
+
+                <div class="campo">
+                    <label class="opcao" for="aceito">
+                        <input type="checkbox" id="aceito" name="aceito" required>
+                        Aceito os termos de uso
+                    </label>
+                    <small class="erro" data-erro-para="aceito"></small>
+                </div>
+
+                <div class="form__acoes">
+                    <button type="submit" class="botao">Enviar</button>
+                    <button type="reset" class="botao botao--sec">Limpar</button>
+                </div>
+
+                <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <p>Siga-nos nas redes sociais:</p>
+        <ul>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">LinkedIn</a></li>
+        </ul>
+        <p>&copy; 2025 Empresa Jovem Vasco - Todos os direitos reservados</p>
+    </footer>
+
+    <button class="topo-btn" id="topo-btn" type="button" aria-label="Voltar ao topo" hidden>↑</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
